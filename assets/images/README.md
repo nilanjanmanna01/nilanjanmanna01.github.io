@@ -1,0 +1,3 @@
+# Image convention
+
+Images for a post live in their own folder under `assets/images/<post-slug>/`, where `<post-slug>` matches the post's filename with the date and `.md` extension stripped (e.g. the post `_posts/2026-03-01-my-first-analysis.md` keeps its images in `assets/images/my-first-analysis/`). Reference them from the post body with a site-root-relative path, e.g. `![Alt text](/assets/images/my-first-analysis/chart.png)`, and use the same folder for a post's `image:` front-matter cover image. Keeping one folder per post avoids filename collisions and makes it obvious which images belong to which article when browsing the repo.

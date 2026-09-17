@@ -13,14 +13,11 @@ timezone: America/New_York
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Nilanjan Manna # PLACEHOLDER: personalize this, e.g. "Nilanjan Manna's Blog" or a project-style name
+title: Nilanjan Manna # shown as the site name in the header and browser tab
 
-tagline: "(Placeholder — one-line statement of what this blog is about; shown as the big headline on the home page)" # PLACEHOLDER: replace before launch
+tagline: "Wearables, health tech, and machine learning" # not shown on the page; used only in the browser tab title and search results
 
-description: >- # used by seo meta and the atom feed; also shown on the home page
-  (Placeholder — replace with a 1-2 sentence summary of this blog. Also feeds
-  SEO meta tags and the RSS feed, so fill it in before sharing the site
-  widely.)
+description: "A personal notebook on wearables, health tech, machine learning, and more." # shown as the home page intro; also feeds SEO meta tags and the RSS feed
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
@@ -40,8 +37,7 @@ social:
   links:
     # The first element serves as the copyright owner's link.
     - https://github.com/nilanjanmanna01
-    # Add more social links as desired, e.g.:
-    # - https://www.linkedin.com/in/username
+    - https://www.linkedin.com/in/nilanjanmanna/
 
 # Site Verification Settings — jekyll-seo-tag emits a verification meta tag for each filled-in value.
 webmaster_verifications:

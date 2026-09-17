@@ -9,11 +9,11 @@ image:
   alt: "ECG strip from an Apple Watch Ultra 3, interpreted by the ECG+ app"
 ---
 
-*Welcome to my website. I am starting this website to share my interests in health
-tech, wearables, and AI/ML. From time to time, I will write about various topics that I
-have read and researched and have something interesting to share. Also, I will refrain
-from suggesting or recommending anything when sharing my experiences. Instead, I
-will provide my interpretation and encourage you to develop your own interpretation.*
+*Welcome to my website. I started it to share my interest in health tech,
+wearables, and machine learning, and to write about topics I have read and
+researched that I find worth sharing. I will not suggest or recommend
+anything here. I will share my own interpretation and encourage you to form
+your own.*
 
 I will start my first few articles about one of the very popular health metrics - Heart Rate
 Variability or HRV since I have collected a decent amount of data and have wanted to

@@ -6,7 +6,9 @@
       <a href="{{ '/' | relative_url }}">Home</a>
       {% assign tabs = site.tabs | sort: "order" %}
       {% for tab in tabs %}
+        {% unless tab.hidden %}
         <a href="{{ tab.url | relative_url }}">{{ tab.title }}</a>
+        {% endunless %}
       {% endfor %}
     </nav>
 

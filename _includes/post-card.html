@@ -1,7 +1,7 @@
 {% comment %}
 Usage: {% include post-card.html post=post %}
 {% endcomment %}
-<article class="post-card">
+<article class="post-card{% if include.featured %} post-card--featured{% endif %}">
   <a class="post-card-media{% unless post.image %} post-card-media--placeholder{% endunless %}" href="{{ post.url | relative_url }}" aria-hidden="true" tabindex="-1">
     {% if post.image %}
       <img src="{{ post.image.path | relative_url }}" alt="" loading="lazy">
@@ -17,11 +17,6 @@ Usage: {% include post-card.html post=post %}
     <p class="post-card-excerpt">{{ post.excerpt | strip_html | truncatewords: 28 }}</p>
     <div class="post-card-meta">
       <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%B %-d, %Y" }}</time>
-      {% if post.tags.size > 0 %}
-        <span class="post-card-tags">
-          {% for t in post.tags limit: 3 %}#{{ t }}{% unless forloop.last %} {% endunless %}{% endfor %}
-        </span>
-      {% endif %}
     </div>
   </div>
 </article>

@@ -3,8 +3,7 @@ layout: default
 ---
 <section class="hero">
   <div class="wrap">
-    <h1 class="hero-title">{{ site.tagline }}</h1>
-    <p class="hero-desc">{{ site.description }}</p>
+    <p class="hero-lead">{{ site.description }}</p>
   </div>
 </section>
 
@@ -12,7 +11,11 @@ layout: default
   {% if paginator.posts.size > 0 %}
     <div class="post-grid">
       {% for post in paginator.posts %}
-        {% include post-card.html post=post %}
+        {% if forloop.first and paginator.page == 1 %}
+          {% include post-card.html post=post featured=true %}
+        {% else %}
+          {% include post-card.html post=post %}
+        {% endif %}
       {% endfor %}
     </div>
     {% include pagination.html paginator=paginator %}

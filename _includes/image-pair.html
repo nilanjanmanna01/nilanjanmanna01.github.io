@@ -1,0 +1,19 @@
+{% comment %}
+Usage inside a post body, for a side-by-side comparison (e.g. before/after,
+two data screenshots):
+  {% include image-pair.html src1="/assets/images/slug/a.png" alt1="..." caption1="..."
+                              src2="/assets/images/slug/b.png" alt2="..." caption2="..." %}
+Renders two images side by side, each at half the normal column width
+(stacks vertically on narrow screens). Click-to-zoom works the same as a
+single image.
+{% endcomment %}
+<div class="image-row">
+  <figure class="post-figure">
+    <img src="{{ include.src1 | relative_url }}" alt="{{ include.alt1 | default: '' }}" loading="lazy">
+    {% if include.caption1 %}<figcaption>{{ include.caption1 }}</figcaption>{% endif %}
+  </figure>
+  <figure class="post-figure">
+    <img src="{{ include.src2 | relative_url }}" alt="{{ include.alt2 | default: '' }}" loading="lazy">
+    {% if include.caption2 %}<figcaption>{{ include.caption2 }}</figcaption>{% endif %}
+  </figure>
+</div>

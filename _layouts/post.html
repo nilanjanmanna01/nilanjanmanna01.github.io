@@ -1,0 +1,89 @@
+---
+layout: default
+---
+<article class="post">
+  {% if page.image %}
+    <figure class="post-hero">
+      <img src="{{ page.image.path | relative_url }}" alt="{{ page.image.alt | default: page.title }}">
+    </figure>
+  {% endif %}
+
+  <header class="post-header wrap-prose">
+    {% if page.categories.size > 0 %}
+      <p class="post-cats">
+        {% for c in page.categories %}
+          <a href="{{ '/categories/' | append: c | slugify | relative_url }}/">{{ c }}</a>{% unless forloop.last %} / {% endunless %}
+        {% endfor %}
+      </p>
+    {% endif %}
+
+    <h1 class="post-title">{{ page.title }}</h1>
+
+    {% assign words = content | number_of_words %}
+    {% assign read_time = words | divided_by: 200 %}
+    <p class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+      <span aria-hidden="true">&middot;</span>
+      <span>{{ read_time | at_least: 1 }} min read</span>
+      {% if page.last_modified_at %}
+        <span aria-hidden="true">&middot;</span>
+        <span>Updated {{ page.last_modified_at | date: "%B %-d, %Y" }}</span>
+      {% endif %}
+    </p>
+  </header>
+
+  {% if page.toc %}
+    <div class="wrap-prose">
+      <nav class="post-toc" id="post-toc" aria-label="Table of contents"></nav>
+    </div>
+  {% endif %}
+
+  <div class="post-content" id="post-content">
+    {{ content }}
+  </div>
+
+  {% if page.tags.size > 0 %}
+    <div class="wrap-prose post-tags">
+      {% for t in page.tags %}
+        <a class="tag-pill" href="{{ '/tags/' | append: t | slugify | relative_url }}/">{{ t }}</a>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  {% if site.actions.edit_post.enabled %}
+    <div class="wrap-prose post-edit">
+      <a href="{{ site.actions.edit_post.url }}/{{ page.path }}" target="_blank" rel="noopener">Edit this post on GitHub</a>
+    </div>
+  {% endif %}
+
+  <div class="wrap-prose">
+    {% include comments.html %}
+  </div>
+</article>
+
+{% if page.math %}
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+      },
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+{% endif %}
+
+{% if page.mermaid %}
+  <script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    document.querySelectorAll('pre code.language-mermaid').forEach((block) => {
+      const pre = block.parentElement;
+      const div = document.createElement('div');
+      div.className = 'mermaid';
+      div.textContent = block.textContent;
+      pre.replaceWith(div);
+    });
+    mermaid.initialize({ startOnLoad: false, theme: 'neutral' });
+    mermaid.run({ querySelector: '.mermaid' });
+  </script>
+{% endif %}

@@ -3,13 +3,15 @@
 source "https://rubygems.org"
 
 gem "jekyll"
-gem "jekyll-theme-chirpy", "~> 7.6"
 
-# These are already pulled in transitively as runtime dependencies of
-# jekyll-theme-chirpy, but are listed explicitly here for clarity.
+# Required by _config.yml's `plugins:` list. This site uses a hand-written
+# custom theme, not a theme gem, so these are declared explicitly rather than
+# pulled in transitively from a theme's gemspec.
 gem "jekyll-feed"
 gem "jekyll-seo-tag"
 gem "jekyll-sitemap"
+gem "jekyll-archives"
+gem "jekyll-paginate"
 
 gem "webrick", "~> 1.8" # required for `jekyll serve` on Ruby >= 3
 

@@ -32,15 +32,35 @@ image:
 
 Omit `math:` entirely if the post has no formulas — it's not needed otherwise. Omit the whole `image:` block if there's no cover image.
 
-Other optional front-matter flags (see `_drafts/example-post-template.md` for a live example of most of these): `pin: true` (pins the post to the top of the home page), `toc: false` (hides the right-hand table of contents for this post), `comments: false`, `mermaid: true` (enables Mermaid diagram blocks).
+Other optional front-matter flags (see `_drafts/example-post-template.md` for a live example of most of these): `pin: true` (adds a "Pinned" badge to the post's card — it does not currently reorder the home page), `toc: false` (hides the auto-generated table of contents on the post page), `comments: false`, `mermaid: true` (enables Mermaid diagram blocks).
 
-## 3. Add images
+## 3. Add images and video
 
-Put every image for this post under `assets/images/<post-slug>/` (same slug as the filename, date stripped) — see `assets/images/README.md`. Reference them in the body as:
+Put every image for this post under `assets/images/<post-slug>/` (same slug as the filename, date stripped) — see `assets/images/README.md`.
+
+Plain Markdown images work and get click-to-zoom automatically:
 
 ```markdown
 ![Alt text](/assets/images/my-post-slug/chart.png)
 ```
+
+For a caption, or to make an image break out to full viewport width (good for
+wide charts or detailed data plots), use the `image.html` include instead:
+
+```liquid
+{% include image.html src="/assets/images/my-post-slug/chart.png" alt="Description" caption="Optional caption text" full=true %}
+```
+
+Omit `full=true` for a normal column-width image, and omit `caption` if you don't need one.
+
+For video, use the `video.html` include — either a YouTube embed or a self-hosted file:
+
+```liquid
+{% include video.html youtube_id="dQw4w9WgXcQ" title="Video title" full=true %}
+{% include video.html src="/assets/videos/my-post-slug/demo.mp4" title="Video title" poster="/assets/images/my-post-slug/poster.png" %}
+```
+
+Both includes must sit on their own line with a blank line before and after, so Markdown treats them as a block rather than folding them into a paragraph.
 
 ## 4. Write the body
 

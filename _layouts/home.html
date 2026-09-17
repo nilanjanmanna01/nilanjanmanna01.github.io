@@ -1,0 +1,22 @@
+---
+layout: default
+---
+<section class="hero">
+  <div class="wrap">
+    <h1 class="hero-title">{{ site.tagline }}</h1>
+    <p class="hero-desc">{{ site.description }}</p>
+  </div>
+</section>
+
+<section class="wrap">
+  {% if paginator.posts.size > 0 %}
+    <div class="post-grid">
+      {% for post in paginator.posts %}
+        {% include post-card.html post=post %}
+      {% endfor %}
+    </div>
+    {% include pagination.html paginator=paginator %}
+  {% else %}
+    <p class="empty-state">No posts yet — the first one is coming soon.</p>
+  {% endif %}
+</section>

@@ -22,11 +22,11 @@ package-lock.json
 !.vscode/extensions.json
 !.vscode/tasks.json
 
-# Misc
-_sass/vendors
-assets/js/dist
-
 # Hidden system files
 *~
 .DS_Store
 Thumbs.db
+
+# Local-only reference material (draft articles, sample/test files) —
+# never committed or published. See _reference/README.md.
+/_reference/

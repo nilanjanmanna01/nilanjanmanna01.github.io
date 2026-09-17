@@ -1,0 +1,21 @@
+{% comment %}
+Usage inside a post body:
+  YouTube:     {% include video.html youtube_id="dQw4w9WgXcQ" title="Video title" full=true %}
+  Self-hosted: {% include video.html src="/assets/videos/my-post-slug/demo.mp4" title="Video title" poster="/assets/images/my-post-slug/poster.png" full=true %}
+`full: true` breaks the embed out to full viewport width; omit it for a normal column-width embed.
+{% endcomment %}
+<div class="video-embed{% if include.full %} full-bleed{% endif %}">
+  {% if include.youtube_id %}
+    <iframe
+      src="https://www.youtube-nocookie.com/embed/{{ include.youtube_id }}"
+      title="{{ include.title | default: 'Embedded video' }}"
+      loading="lazy"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+      allowfullscreen></iframe>
+  {% elsif include.src %}
+    <video controls preload="metadata"{% if include.poster %} poster="{{ include.poster | relative_url }}"{% endif %}>
+      <source src="{{ include.src | relative_url }}">
+      Your browser doesn't support embedded video.
+    </video>
+  {% endif %}
+</div>

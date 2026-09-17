@@ -1,0 +1,17 @@
+---
+layout: default
+---
+<div class="wrap page">
+  <h1 class="page-title">{{ page.title | default: "Categories" }}</h1>
+
+  {% assign cats = site.categories | sort %}
+  {% if cats.size > 0 %}
+    <ul class="term-list">
+      {% for c in cats %}
+        <li><a href="{{ '/categories/' | append: c[0] | slugify | relative_url }}/">{{ c[0] }}</a> <span class="term-count">{{ c[1].size }}</span></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p class="empty-state">No categories yet.</p>
+  {% endif %}
+</div>

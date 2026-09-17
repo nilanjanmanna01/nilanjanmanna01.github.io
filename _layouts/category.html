@@ -1,0 +1,12 @@
+---
+layout: default
+---
+<div class="wrap page">
+  <p class="eyebrow">Category</p>
+  <h1 class="page-title">{{ page.title }}</h1>
+  <div class="post-grid">
+    {% for post in page.posts %}
+      {% include post-card.html post=post %}
+    {% endfor %}
+  </div>
+</div>

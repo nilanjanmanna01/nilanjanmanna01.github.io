@@ -1,0 +1,12 @@
+{% comment %} Usage: {% include pagination.html paginator=paginator %} {% endcomment %}
+{% if include.paginator.total_pages > 1 %}
+  <nav class="pagination" aria-label="Post list pagination">
+    {% if include.paginator.previous_page %}
+      <a class="pagination-prev" href="{{ include.paginator.previous_page_path | relative_url }}">&larr; Newer</a>
+    {% endif %}
+    <span class="pagination-status">Page {{ include.paginator.page }} of {{ include.paginator.total_pages }}</span>
+    {% if include.paginator.next_page %}
+      <a class="pagination-next" href="{{ include.paginator.next_page_path | relative_url }}">Older &rarr;</a>
+    {% endif %}
+  </nav>
+{% endif %}

@@ -8,6 +8,7 @@ date: 2026-01-01 09:00:00 -0500
 categories: [Wearables, HRV]
 tags: [hrv, ppg, python, signal-processing]     # lowercase, hyphenated
 math: true      # required on any post using $$...$$ or $...$ math
+mermaid: true   # required on any post using ```mermaid fenced blocks
 image:
   path: /assets/images/example-post-template/cover.png
   alt: "Placeholder cover image — replace with a real image or delete the `image` block"
@@ -21,7 +22,7 @@ you actually need.
 
 ## Math example
 
-Chirpy renders math via MathJax whenever `math: true` is set in the front
+The theme renders math via MathJax whenever `math: true` is set in the front
 matter above. Inline math looks like this: the root mean square of successive
 differences is written $\text{RMSSD} = \sqrt{\frac{1}{N-1}\sum_{i=1}^{N-1}(RR_{i+1}-RR_i)^2}$.
 
@@ -48,7 +49,8 @@ def rmssd(rr_intervals_ms: np.ndarray) -> float:
 ## Image example
 
 Images for a given post live under `assets/images/<post-slug>/` — see
-`assets/images/README.md` for the convention. Referenced like this:
+`assets/images/README.md` for the convention. Plain Markdown works and gets
+click-to-zoom automatically:
 
 ```markdown
 ![Alt text describing the chart](/assets/images/example-post-template/cover.png)
@@ -56,10 +58,34 @@ Images for a given post live under `assets/images/<post-slug>/` — see
 
 ![Placeholder — replace with a real image or delete this line](/assets/images/example-post-template/cover.png)
 
-## Other Chirpy front-matter options worth knowing about
+For a caption, or to break an image out to full viewport width, use the
+`image.html` include instead (see `POSTING.md`):
 
-- `pin: true` — pins the post to the top of the home page.
-- `toc: false` — turns off the right-hand table of contents for this post
+{% include image.html src="/assets/images/example-post-template/cover.png" alt="Placeholder" caption="A full-bleed image, useful for wide charts" full=true %}
+
+## Video example
+
+```liquid
+{% raw %}{% include video.html youtube_id="dQw4w9WgXcQ" title="Video title" %}{% endraw %}
+```
+
+{% include video.html youtube_id="dQw4w9WgXcQ" title="Example embed" %}
+
+## Mermaid example
+
+Enabled via `mermaid: true` in the front matter above:
+
+```mermaid
+flowchart LR
+  A[Raw PPG] --> B[Peak detection]
+  B --> C[RR intervals]
+  C --> D[RMSSD]
+```
+
+## Other front-matter options worth knowing about
+
+- `pin: true` — adds a "Pinned" badge to the post's card on the home page.
+- `toc: false` — turns off the auto-generated table of contents for this post
   (it's on by default, set globally in `_config.yml`).
 - `comments: false` — disables comments for this post (only relevant once a
   comments provider is configured in `_config.yml`; currently unset).

@@ -1,0 +1,21 @@
+{% if page.comments and site.comments.provider == "giscus" and site.comments.giscus.repo %}
+  <section class="comments">
+    <script src="https://giscus.app/client.js"
+      data-repo="{{ site.comments.giscus.repo }}"
+      data-repo-id="{{ site.comments.giscus.repo_id }}"
+      data-category="{{ site.comments.giscus.category }}"
+      data-category-id="{{ site.comments.giscus.category_id }}"
+      data-mapping="{{ site.comments.giscus.mapping | default: 'pathname' }}"
+      data-strict="0"
+      data-reactions-enabled="1"
+      data-input-position="bottom"
+      data-theme="preferred_color_scheme"
+      data-lang="{{ site.lang | default: 'en' }}"
+      crossorigin="anonymous"
+      async>
+    </script>
+  </section>
+{% else %}
+  <!-- Comments not yet configured. To enable: set up giscus at https://giscus.app,
+       then fill in site.comments.giscus in _config.yml and set provider: giscus. -->
+{% endif %}

@@ -1,0 +1,10 @@
+{% comment %}
+Usage inside a post body:
+  {% include image.html src="/assets/images/my-post-slug/chart.png" alt="Description" caption="Optional caption" full=true %}
+`full: true` breaks the image out to full viewport width; omit it for a normal
+column-width image. Click-to-zoom is automatic for every image inserted this way.
+{% endcomment %}
+<figure class="post-figure{% if include.full %} full-bleed{% endif %}">
+  <img src="{{ include.src | relative_url }}" alt="{{ include.alt | default: '' }}" loading="lazy">
+  {% if include.caption %}<figcaption>{{ include.caption }}</figcaption>{% endif %}
+</figure>

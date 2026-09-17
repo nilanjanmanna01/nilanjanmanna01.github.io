@@ -1,8 +1,9 @@
 # nilanjanmanna01.github.io
 
 Personal blog — software/hardware projects, starting with wearable HRV/PPG
-data engineering, broadening from there. Built with [Jekyll][jekyll] and the
-[Chirpy][chirpy] theme, deployed via GitHub Actions to GitHub Pages.
+data engineering, broadening from there. Built with [Jekyll][jekyll] and a
+hand-written custom theme (see `_layouts/`, `_includes/`, `assets/css/`,
+`assets/js/`), deployed via GitHub Actions to GitHub Pages.
 
 ## Adding a new post
 
@@ -26,11 +27,7 @@ the site with Jekyll and deploys it to GitHub Pages automatically.
 ## License
 
 The site content (posts, images, and this README) is © Nilanjan Manna, all
-rights reserved unless a post states otherwise. The underlying Jekyll
-scaffolding, inherited from the [Chirpy starter][chirpy-starter], remains
-under the [MIT][mit] License.
+rights reserved unless a post states otherwise. The theme code (layouts,
+includes, Sass, and JS) is original to this repository.
 
 [jekyll]: https://jekyllrb.com/
-[chirpy]: https://github.com/cotes2020/jekyll-theme-chirpy/
-[chirpy-starter]: https://github.com/cotes2020/chirpy-starter
-[mit]: https://github.com/cotes2020/chirpy-starter/blob/master/LICENSE

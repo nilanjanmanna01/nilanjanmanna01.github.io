@@ -1,0 +1,17 @@
+---
+layout: default
+---
+<div class="wrap page">
+  <h1 class="page-title">{{ page.title | default: "Tags" }}</h1>
+
+  {% assign tags = site.tags | sort %}
+  {% if tags.size > 0 %}
+    <div class="tag-cloud">
+      {% for t in tags %}
+        <a class="tag-pill" href="{{ '/tags/' | append: t[0] | slugify | relative_url }}/">{{ t[0] }} <span class="term-count">{{ t[1].size }}</span></a>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="empty-state">No tags yet.</p>
+  {% endif %}
+</div>

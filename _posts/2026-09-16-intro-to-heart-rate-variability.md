@@ -166,11 +166,9 @@ shows how heartbeat variability is distributed across frequencies, helping us se
 whether the heart is being guided more by relaxation (parasympathetic) or stress
 (sympathetic) at that moment.
 
-While I've done some data conversion using generative AI, I don't think I have enough
-knowledge to validate that analysis yet. Also, 30 seconds of ECG data is too short for
-accurate results on these metrics. So instead, I'll share some frequency-domain data I
-collected using software called Kubios HRV ([kubios.com/hrv-app](https://www.kubios.com/hrv-app/)), paired
-with a Polar OH1 heart rate monitor.
+I'll share some frequency-domain data I collected using software called Kubios HRV
+([kubios.com/hrv-app](https://www.kubios.com/hrv-app/)), paired with a Polar OH1 heart
+rate monitor.
 
 As you can see below, on the day when the body was not recovered properly, HRV was
 lower, with a 32 ms RMSSD accompanied by an LF/HF ratio of 1.1. This signifies more

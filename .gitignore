@@ -30,3 +30,6 @@ Thumbs.db
 # Local-only reference material (draft articles, sample/test files) —
 # never committed or published. See _reference/README.md.
 /_reference/
+
+# Project instructions for Claude Code — local-only, not published.
+/CLAUDE.md

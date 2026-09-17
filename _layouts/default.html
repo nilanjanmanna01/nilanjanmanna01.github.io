@@ -26,6 +26,19 @@
   {% seo %}
 
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+
+  <!--
+    Only runs when a leftover service worker (from the old Chirpy PWA setup)
+    is already controlling this page. Forces an immediate update check
+    instead of waiting for the browser's ~24h background check, so the
+    kill-switch at /sw.js retires the old worker right away rather than
+    up to a day later. Does nothing for a normal visitor with no worker.
+  -->
+  <script>
+    if (navigator.serviceWorker && navigator.serviceWorker.controller) {
+      navigator.serviceWorker.register("{{ '/sw.js' | relative_url }}");
+    }
+  </script>
 </head>
 <body>
   {% include header.html %}

@@ -5,8 +5,9 @@ categories: [Wearables, HRV]
 tags: [hrv, ecg, ppg, wearables]
 math: true
 image:
-  path: /assets/images/intro-to-heart-rate-variability/ecg.png
-  alt: "ECG strip from an Apple Watch Ultra 3, interpreted by the ECG+ app"
+  path: /assets/images/intro-to-heart-rate-variability/cover.png
+  dark: /assets/images/intro-to-heart-rate-variability/cover-dark.png
+  alt: "Stylized ECG trace of about a dozen heartbeats"
 ---
 
 *Welcome to my website. I started it to share my interest in health tech,

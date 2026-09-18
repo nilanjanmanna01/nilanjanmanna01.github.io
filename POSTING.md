@@ -32,6 +32,8 @@ image:
 
 Omit `math:` entirely if the post has no formulas — it's not needed otherwise. Omit the whole `image:` block if there's no cover image.
 
+Optionally add `dark: /assets/images/my-post-slug/cover-dark.png` under `image:` to show a different cover in dark mode (it follows the theme toggle). `path` should be a PNG/JPG, not SVG, since it doubles as the `og:image` social preview.
+
 Other optional front-matter flags (see `_drafts/example-post-template.md` for a live example of most of these): `pin: true` (adds a "Pinned" badge to the post's card — it does not currently reorder the home page), `toc: false` (hides the auto-generated table of contents on the post page), `comments: false`, `mermaid: true` (enables Mermaid diagram blocks).
 
 ## 3. Add images and video

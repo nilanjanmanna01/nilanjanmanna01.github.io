@@ -4,7 +4,8 @@ Usage: {% include post-card.html post=post %}
 <article class="post-card{% if include.featured %} post-card--featured{% endif %}">
   <a class="post-card-media{% unless post.image %} post-card-media--placeholder{% endunless %}" href="{{ post.url | relative_url }}" aria-hidden="true" tabindex="-1">
     {% if post.image %}
-      <img src="{{ post.image.path | relative_url }}" alt="" loading="lazy">
+      <img{% if post.image.dark %} class="theme-img--light"{% endif %} src="{{ post.image.path | relative_url }}" alt="" loading="lazy">
+      {% if post.image.dark %}<img class="theme-img--dark" src="{{ post.image.dark | relative_url }}" alt="" loading="lazy">{% endif %}
     {% else %}
       <span class="post-card-placeholder-mark">{{ post.title | slice: 0 }}</span>
     {% endif %}

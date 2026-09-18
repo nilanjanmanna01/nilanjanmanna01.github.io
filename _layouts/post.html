@@ -4,7 +4,8 @@ layout: default
 <article class="post">
   {% if page.image %}
     <figure class="post-hero">
-      <img src="{{ page.image.path | relative_url }}" alt="{{ page.image.alt | default: page.title }}">
+      <img{% if page.image.dark %} class="theme-img--light"{% endif %} src="{{ page.image.path | relative_url }}" alt="{{ page.image.alt | default: page.title }}">
+      {% if page.image.dark %}<img class="theme-img--dark" src="{{ page.image.dark | relative_url }}" alt="" aria-hidden="true">{% endif %}
     </figure>
   {% endif %}
 

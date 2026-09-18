@@ -496,6 +496,28 @@ h4 {
   display: block;
 }
 
+// Optional dark-mode variant of a cover image (front matter `image.dark`)
+img.theme-img--dark {
+  display: none;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) img.theme-img--light {
+    display: none;
+  }
+  :root:not([data-theme="light"]) img.theme-img--dark {
+    display: block;
+  }
+}
+
+:root[data-theme="dark"] img.theme-img--light {
+  display: none;
+}
+
+:root[data-theme="dark"] img.theme-img--dark {
+  display: block;
+}
+
 .post-header {
   margin-bottom: 2rem;
 }

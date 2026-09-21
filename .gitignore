@@ -27,6 +27,24 @@ package-lock.json
 .DS_Store
 Thumbs.db
 
+# Secrets and keys
+.env
+.env.*
+*.pem
+*.key
+
+# Unpublished drafts stay local (the template is the only tracked draft)
+/_drafts/*
+!/_drafts/example-post-template.md
+
+# Claude Code local settings
+/.claude/
+
+# Generated files and logs
+.sass-cache
+.ruby-lsp
+*.log
+
 # Local-only reference material (draft articles, sample/test files) —
 # never committed or published. See _reference/README.md.
 /_reference/
